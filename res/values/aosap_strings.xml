@@ -42,4 +42,7 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+
+    <string name="status_bar_quick_qs_pulldown">Pulldown statusbar from right side to show QS panel</string>
+
 </resources>
