@@ -77,4 +77,7 @@
     <string name="powermenu_screenshot_title">Screenshot</string>
     <string name="powermenu_lockdown_title">Lockdown</string>
     <string name="powermenu_screenrecord_title">Screenrecord</string>
+
+    <!-- Statusbar Tuner -->
+    <string name="statusbar_items_title">Statusbar items</string>
 </resources>
