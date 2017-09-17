@@ -32,6 +32,9 @@ import android.widget.EditText;
 import androidx.preference.ListPreference;
 import androidx.preference.SwitchPreference;
 import java.util.Date;
+import android.os.UserHandle;
+import com.aosap.support.preferences.CustomSeekBarPreference;
+import com.aosap.support.preferences.SystemSettingSwitchPreference;
 
 import java.util.Locale;
 import android.text.TextUtils;
@@ -82,6 +85,9 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     private ListPreference mBatteryPercent;
     private ListPreference mBatteryStyle;
     private SwitchPreference mBatteryCharging;
+
+    private CustomSeekBarPreference mThreshold;
+    private SystemSettingSwitchPreference mNetMonitor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -166,6 +172,19 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         updateBatteryOptions(batterystyle);
 
+        boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_STATE, 1, UserHandle.USER_CURRENT) == 1;
+        mNetMonitor = (SystemSettingSwitchPreference) findPreference("network_traffic_state");
+        mNetMonitor.setChecked(isNetMonitorEnabled);
+        mNetMonitor.setOnPreferenceChangeListener(this);
+
+        int trafvalue = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1, UserHandle.USER_CURRENT);
+        mThreshold = (CustomSeekBarPreference) findPreference("network_traffic_autohide_threshold");
+        mThreshold.setValue(trafvalue);
+        mThreshold.setOnPreferenceChangeListener(this);
+        mThreshold.setEnabled(isNetMonitorEnabled);
+
     }
 
     @Override
@@ -173,7 +192,21 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         AlertDialog dialog;
 
-        if (preference == mClockAmPmStyle) {
+        if (preference == mNetMonitor) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_STATE, value ? 1 : 0,
+                    UserHandle.USER_CURRENT);
+            mNetMonitor.setChecked(value);
+            mThreshold.setEnabled(value);
+            return true;
+        } else if (preference == mThreshold) {
+            int val = (Integer) objValue;
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, val,
+                    UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mClockAmPmStyle) {
             int val = Integer.parseInt((String) objValue);
             int index = mClockAmPmStyle.findIndexOfValue((String) objValue);
             Settings.Secure.putInt(getActivity().getContentResolver(),
