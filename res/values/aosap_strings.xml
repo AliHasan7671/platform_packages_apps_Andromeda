@@ -56,4 +56,8 @@
     <string name="media_art_title">Media cover art</string>
     <string name="media_art_summary">Enable media cover art on the lockscreen</string>
 
+     <!-- Power plug events -->
+    <string name="vibration_on_charge_state_changed_title">Vibrate on plug</string>
+    <string name="vibration_on_charge_state_changed_summary">Vibrate when connecting or disconnecting a power source</string>
+
 </resources>
