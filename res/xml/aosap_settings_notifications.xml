@@ -29,8 +29,14 @@
 
     <Preference
         android:key="charging_light"
-        android:fragment="com.nitrogen.settings.fragments.BatteryLightSettings"
+        android:fragment="com.aosap.settings.fragments.BatteryLightSettings"
         android:title="@string/battery_light_settings" />
+
+    <!-- Heads up -->
+    <Preference
+        android:key="heads_up_notifications"
+        android:title="@string/heads_up_notifications"
+        android:fragment="com.aosap.settings.fragments.HeadsUpSettings" />
 
     <PreferenceCategory
         android:key="incall_vib_options"
