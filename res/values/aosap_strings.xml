@@ -48,4 +48,8 @@
 
     <!--Double Tap to Sleep Lockscreen-->
     <string name="double_tap_sleep_lockscreen_title">Double tap to sleep on lockscreen</string>
+
+    <!-- Lockscreen battery info indicator  -->
+    <string name="lockscreen_battery_info_title">Lockscreen charging info</string>
+    <string name="lockscreen_battery_info_summary">Show charging current, voltage and battery temperature on lockscreen while charging</string>
 </resources>
