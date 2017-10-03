@@ -39,7 +39,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String FLASH_ON_CALL_WAITING_DELAY = "flash_on_call_waiting_delay";
+    private static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
     private CustomSeekBarPreference mFlashOnCallWaitingDelay;
+    private ListPreference mHeadsetRingtoneFocus;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -51,6 +53,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mFlashOnCallWaitingDelay = (CustomSeekBarPreference) findPreference(FLASH_ON_CALL_WAITING_DELAY);
         mFlashOnCallWaitingDelay.setValue(Settings.System.getInt(resolver, Settings.System.FLASH_ON_CALLWAITING_DELAY, 200));
         mFlashOnCallWaitingDelay.setOnPreferenceChangeListener(this);
+
+        mHeadsetRingtoneFocus = (ListPreference) findPreference(RINGTONE_FOCUS_MODE);
+        int mHeadsetRingtoneFocusValue = Settings.Global.getInt(resolver,
+                Settings.Global.RINGTONE_FOCUS_MODE, 0);
+        mHeadsetRingtoneFocus.setValue(Integer.toString(mHeadsetRingtoneFocusValue));
+        mHeadsetRingtoneFocus.setSummary(mHeadsetRingtoneFocus.getEntry());
+        mHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -58,6 +67,14 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         if (preference == mFlashOnCallWaitingDelay) {
             int val = (Integer) objValue;
             Settings.System.putInt(getContentResolver(), Settings.System.FLASH_ON_CALLWAITING_DELAY, val);
+            return true;
+        } else if (preference == mHeadsetRingtoneFocus) {
+            int mHeadsetRingtoneFocusValue = Integer.valueOf((String) objValue);
+            int index = mHeadsetRingtoneFocus.findIndexOfValue((String) objValue);
+            mHeadsetRingtoneFocus.setSummary(
+                    mHeadsetRingtoneFocus.getEntries()[index]);
+            Settings.Global.putInt(getContentResolver(), Settings.Global.RINGTONE_FOCUS_MODE,
+                    mHeadsetRingtoneFocusValue);
             return true;
         }
     return false;
