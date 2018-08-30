@@ -23,4 +23,25 @@
             android:title="@string/wakeup_when_plugged_unplugged_title"
             android:summary="@string/wakeup_when_plugged_unplugged_summary"
             android:defaultValue="true" />
+
+<PreferenceCategory
+        android:key="flash_on_call_options"
+        android:title="@string/flash_on_call_category" >
+
+         <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="flash_on_call_waiting"
+            android:title="@string/flash_on_call_title"
+            android:defaultValue="false" />
+
+         <com.aosap.settings.preferences.CustomSeekBarPreference
+            android:key="flash_on_call_waiting_delay"
+            android:max="1000"
+            android:persistent="false"
+            android:title="@string/flash_on_call_delay_title"
+            settings:min="50"
+            settings:units="ms"
+            settings:interval="50"
+            android:dependency="flash_on_call_waiting"/>
+         </PreferenceCategory>
+
 </PreferenceScreen>
