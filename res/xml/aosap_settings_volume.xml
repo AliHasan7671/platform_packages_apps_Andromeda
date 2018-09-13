@@ -86,4 +86,10 @@
         settings:units="@string/unit_seconds"
         android:dependency="adaptive_playback_enabled" />
 
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="swap_volume_buttons"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>
