@@ -17,13 +17,11 @@
 package com.aosap.support.preferences;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
 public class SecureSettingListPreference extends ListPreference {
-
     private boolean mAutoSummary = false;
 
     public SecureSettingListPreference(Context context, AttributeSet attrs, int defStyle) {
@@ -68,9 +66,6 @@ public class SecureSettingListPreference extends ListPreference {
         setValue(restoreValue ? getPersistedString((String) defaultValue) : (String) defaultValue);
     }
 
-    protected boolean isPersisted() {
-        // Using getString instead of getInt so we can simply check for null
-        // instead of catching an exception. (All values are stored as strings.)
-        return Settings.Secure.getString(getContext().getContentResolver(), getKey()) != null;
-    }
 }
+
+
