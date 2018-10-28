@@ -758,4 +758,8 @@
     <string name="qs_datausage_daily">Daily usage</string>
     <string name="qs_datausage_monthly">Monthly usage</string>
 
+    <!-- Notification count -->
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+
 </resources>

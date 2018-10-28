@@ -130,4 +130,11 @@
             android:title="@string/status_bar_clock_date_title"
             android:summary="@string/status_bar_clock_date_summary"
             android:fragment="com.aosap.settings.fragments.StatusbarClockSettings" />
+
+    <com.aosap.settings.preferences.SystemSettingSwitchPreference
+        android:key="status_bar_notif_count"
+        android:title="@string/status_bar_notif_count_title"
+        android:summary="@string/status_bar_notif_count_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
