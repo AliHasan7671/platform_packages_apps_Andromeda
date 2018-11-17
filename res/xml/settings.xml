@@ -97,6 +97,12 @@
             android:title="@string/battery_light_settings"
             android:icon="@drawable/ic_battery"/>
 
+        <Preference
+            android:key="notification_light"
+            android:fragment="com.android.settings.applications.manageapplications.ManageApplications"
+            android:title="@string/notification_light_settings"
+            android:icon="@drawable/ic_notif"/>
+
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -99,5 +99,6 @@
     <string name="battery_light_reallyfull_color">Full battery (100)</string>
     <string name="leds">LED lights</string>
     <string name="battery_light_settings">Battery charging light</string>
+    <string name="notification_light_settings">Notification light</string>
 
 </resources>
