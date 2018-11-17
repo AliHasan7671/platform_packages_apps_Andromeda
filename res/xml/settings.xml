@@ -87,4 +87,16 @@
             android:fragment="com.aosap.settings.fragments.MiscSettings"
             android:icon="@drawable/ic_settings_miscs"/>
 
+        <PreferenceCategory
+            android:key="leds"
+            android:title="@string/leds" >
+
+        <Preference
+            android:key="charging_light"
+            android:fragment="com.aosap.settings.BatteryLightSettings"
+            android:title="@string/battery_light_settings"
+            android:icon="@drawable/ic_battery"/>
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
