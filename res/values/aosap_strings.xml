@@ -101,4 +101,8 @@
     <string name="battery_light_settings">Battery charging light</string>
     <string name="notification_light_settings">Notification light</string>
 
+    <!-- Power menu on secure lockscreen -->
+    <string name="lockscreen_power_menu_disabled_title">No power menu when locked</string>
+    <string name="lockscreen_power_menu_disabled_summary">Disable power menu on secure lockscreen</string>
+
 </resources>
