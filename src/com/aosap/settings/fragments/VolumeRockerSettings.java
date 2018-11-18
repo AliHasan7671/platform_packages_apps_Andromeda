@@ -16,7 +16,7 @@ public class VolumeRockerSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private ListPreference mQuickPulldown;
-    private ListPreference mAnnoyingNotification
+    private ListPreference mAnnoyingNotification;
 
     @Override
     public void onCreate(Bundle icicle) {
