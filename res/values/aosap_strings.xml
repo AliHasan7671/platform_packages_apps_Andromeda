@@ -105,4 +105,7 @@
     <string name="lockscreen_power_menu_disabled_title">No power menu when locked</string>
     <string name="lockscreen_power_menu_disabled_summary">Disable power menu on secure lockscreen</string>
 
+    <string name="notification_sound_vib_screen_on_title">Notification sound if screen is on</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
+
 </resources>
