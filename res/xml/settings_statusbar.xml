@@ -39,4 +39,10 @@
         android:entryValues="@array/battery_percent_values"
         android:defaultValue="0" />
 
+    <Preference
+        android:key="clock_settings"
+        android:title="@string/status_bar_clock"
+        android:summary="@string/status_bar_clock_summary"
+        android:fragment="com.aosap.settings.ClockDateSettings" />
+
 </PreferenceScreen>
