@@ -79,4 +79,16 @@
          android:summary="@string/ambient_decor_summary"
          android:fragment="com.aosap.settings.fragments.AmbientDecorSettings" />
 
+    <PreferenceCategory
+        android:key="notification_misc"
+        android:title="@string/notification_misc">
+
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="notification_guts_kill_app_button"
+            android:title="@string/notification_guts_kill_app_button_title"
+            android:summary="@string/notification_guts_kill_app_button_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
