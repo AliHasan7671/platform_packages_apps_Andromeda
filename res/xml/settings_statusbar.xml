@@ -45,4 +45,20 @@
         android:summary="@string/status_bar_clock_summary"
         android:fragment="com.aosap.settings.ClockDateSettings" />
 
+    <PreferenceCategory
+        android:key="net_monitor_category"
+        android:title="@string/net_monitor_category_title" >
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="network_traffic_state"
+            android:title="@string/network_traffic_state_title"
+            android:defaultValue="true" />
+
+        <com.aosap.settings.preferences.CustomSeekBarPreference
+            android:key="network_traffic_autohide_threshold"
+            android:title="@string/network_traffic_autohide_threshold_title"
+            android:max="10"
+            settings:min="0"
+            settings:units="" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
