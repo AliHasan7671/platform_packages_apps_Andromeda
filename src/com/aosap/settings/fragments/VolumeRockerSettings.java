@@ -8,6 +8,8 @@ import android.support.v7.preference.Preference;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
+import android.content.ContentResolver;
+import android.os.UserHandle;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
