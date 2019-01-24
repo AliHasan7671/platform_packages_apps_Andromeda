@@ -86,4 +86,7 @@
     <string name="battery_percent_outside">Outside</string>
     <string name="battery_percent_inside">Inside</string>
 
+    <!-- IconPack Preference -->
+    <string name="default_iconpack_title">Default</string>
+
 </resources>
