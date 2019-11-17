@@ -50,4 +50,12 @@
             android:dependency="flash_on_call_waiting"/>
          </PreferenceCategory>
 
+    <com.aosap.settings.preferences.SystemSettingMasterSwitchPreference
+        android:key="gaming_mode_enabled"
+        android:icon="@drawable/ic_gaming"
+        android:fragment="com.aosap.settings.fragments.GamingMode"
+        android:title="@string/gaming_mode_title"
+        android:summary="@string/gaming_mode_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
