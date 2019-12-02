@@ -73,4 +73,10 @@
         android:summary="@string/qs_show_auto_brightness_summary"
         android:defaultValue="true" />
 
+    <Preference
+         android:key="ambient_decor"
+         android:title="@string/ambient_decor_title"
+         android:summary="@string/ambient_decor_summary"
+         android:fragment="com.aosap.settings.fragments.AmbientDecorSettings" />
+
 </PreferenceScreen>
