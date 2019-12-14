@@ -68,4 +68,11 @@
     <!-- Brightness icon-->
     <string name="brightness_icon_title">Brightness icon</string>
     <string name="brightness_icon_summary">Show a brightness icon to the right of the brighness slider to adjust auto-brightness</string>
+
+    <!-- Advanced Reboot Menu -->
+    <string name="power_button_category">Power</string>
+    <string name="powermenu_reboot_title">Restart</string>
+    <string name="powermenu_advanced_restart_title">Advanced restart</string>
+    <string name="powermenu_advanced_restart_summary">Enables the advanced restart menu for other restarting options</string>
+    <string name="powermenu_screenshot_title">Screenshot</string>
 </resources>
