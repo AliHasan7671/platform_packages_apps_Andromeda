@@ -38,20 +38,41 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto;
 
+import com.android.internal.widget.LockPatternUtils;
+
 public class ButtonSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
+
+    private static final String KEY_LOCKDOWN_IN_POWER_MENU = "lockdown_in_power_menu";
+    private static final int MY_USER_ID = UserHandle.myUserId();
+
+    private SwitchPreference mPowerMenuLockDown;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.aosap_settings_button);
+        final PreferenceScreen prefSet = getPreferenceScreen();
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
 
-        final PreferenceScreen prefScreen = getPreferenceScreen();
+        mPowerMenuLockDown = (SwitchPreference) findPreference(KEY_LOCKDOWN_IN_POWER_MENU);
+        if (lockPatternUtils.isSecure(MY_USER_ID)) {
+            mPowerMenuLockDown.setChecked((Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCKDOWN_IN_POWER_MENU, 0) == 1));
+            mPowerMenuLockDown.setOnPreferenceChangeListener(this);
+        } else {
+            prefSet.removePreference(mPowerMenuLockDown);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-
+        if (preference == mPowerMenuLockDown) {
+            boolean value = (Boolean) newValue;
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.LOCKDOWN_IN_POWER_MENU, value ? 1 : 0);
+            return true;
+        }
         return false;
     }
 
