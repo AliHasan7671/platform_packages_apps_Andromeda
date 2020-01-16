@@ -35,14 +35,19 @@ import java.util.HashSet;
 
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.aosap.settings.fragments.SmartCharging;
+
 @SearchIndexable
 public class MiscSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String FLASH_ON_CALL_WAITING_DELAY = "flash_on_call_waiting_delay";
     private static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
+    private static final String SMART_CHARGING = "smart_charging";
+
     private CustomSeekBarPreference mFlashOnCallWaitingDelay;
     private ListPreference mHeadsetRingtoneFocus;
+    private Preference mSmartCharging;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -50,6 +55,9 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.aosap_settings_misc);
         final ContentResolver resolver = getActivity().getContentResolver();
+
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources res = getResources();
 
         mFlashOnCallWaitingDelay = (CustomSeekBarPreference) findPreference(FLASH_ON_CALL_WAITING_DELAY);
         mFlashOnCallWaitingDelay.setValue(Settings.System.getInt(resolver, Settings.System.FLASH_ON_CALLWAITING_DELAY, 200));
@@ -62,6 +70,17 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mHeadsetRingtoneFocus.setSummary(mHeadsetRingtoneFocus.getEntry());
         mHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);
 
+        mSmartCharging = (Preference) prefScreen.findPreference(SMART_CHARGING);
+        boolean mSmartChargingSupported = res.getBoolean(
+                com.android.internal.R.bool.config_smartChargingAvailable);
+        if (!mSmartChargingSupported)
+            prefScreen.removePreference(mSmartCharging);
+
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        SmartCharging.reset(mContext);
     }
 
     @Override
@@ -104,6 +123,13 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 			@Override
 			public List<String> getNonIndexableKeys(Context context) {
 				List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+
+                    boolean mSmartChargingSupported = res.getBoolean(
+                            com.android.internal.R.bool.config_smartChargingAvailable);
+                    if (!mSmartChargingSupported)
+                        keys.add(SMART_CHARGING);
+
 				return keys;
 			}
     };

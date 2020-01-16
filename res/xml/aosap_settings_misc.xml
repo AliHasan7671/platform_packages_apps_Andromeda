@@ -71,4 +71,12 @@
         android:summary="@string/charging_animation_summary"
         android:defaultValue="true" />
 
+    <!-- Smart Charging -->
+    <Preference
+        android:key="smart_charging"
+        android:icon="@drawable/ic_battery_charging_80"
+        android:title="@string/smart_charging_title"
+        android:summary="@string/smart_charging_summary"
+        android:fragment="com.aosap.settings.fragments.SmartCharging"/>
+
 </PreferenceScreen>
