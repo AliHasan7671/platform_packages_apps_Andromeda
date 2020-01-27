@@ -765,4 +765,11 @@
     <!-- Lock screen media blur -->
     <string name="lockscreen_media_blur_title">Media artwork blur level</string>
 
+    <!-- FOD icon picker -->
+    <string name="fod_icon_picker_category_title">FOD settings</string>
+
+    <!-- FOD animations -->
+    <string name="fod_recog_animation">Fingerprint animation</string>
+    <string name="fod_recog_animation_summary">Shows an animation while reading your finger</string>
+
 </resources>

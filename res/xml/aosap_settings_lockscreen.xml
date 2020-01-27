@@ -18,6 +18,20 @@
     android:title="@string/lockscreen_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <!-- FOD customization options -->
+    <PreferenceCategory
+        android:key="fod_icon_picker"
+        android:title="@string/fod_icon_picker_category_title">
+
+        <!-- FOD recognizing animation -->
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="fod_recognizing_animation"
+            android:title="@string/fod_recog_animation"
+            android:summary="@string/fod_recog_animation_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
             android:key="double_tap_sleep_lockscreen"
             android:title="@string/double_tap_sleep_lockscreen_title"

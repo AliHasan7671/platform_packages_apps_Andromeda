@@ -18,6 +18,7 @@
 package com.aosap.settings.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
+import com.android.internal.util.aosap.fod.FodUtils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -50,6 +51,10 @@ import java.util.List;
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
+
+    private PreferenceCategory mFODIconPickerCategory;
+
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
 
     private FingerprintManager mFingerprintManager;
@@ -63,6 +68,11 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
         Resources resources = getResources();
+
+        mFODIconPickerCategory = findPreference(FOD_ICON_PICKER_CATEGORY);
+        if (mFODIconPickerCategory != null && !FodUtils.hasFodSupport(getContext())) {
+            prefScreen.removePreference(mFODIconPickerCategory);
+        }
 
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
         mFingerprintVib = (SwitchPreference) findPreference(FINGERPRINT_VIB);
