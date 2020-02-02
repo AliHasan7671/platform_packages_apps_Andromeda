@@ -27,6 +27,8 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.Indexable;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.aosap.settings.fragments.CustomHeader;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -50,6 +52,7 @@ public class QuickSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = mContext.getContentResolver();
         Settings.System.putIntForUser(resolver,
                 Settings.System.QS_TILE_TITLE_VISIBILITY, 1, UserHandle.USER_CURRENT);
+        CustomHeader.reset(mContext);
     }
 
     @Override
