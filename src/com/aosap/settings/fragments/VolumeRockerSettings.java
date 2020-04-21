@@ -133,6 +133,13 @@ public class VolumeRockerSettings extends SettingsPreferenceFragment implements
         0,
     };
 
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ADAPTIVE_PLAYBACK_ENABLED, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ADAPTIVE_PLAYBACK_TIMEOUT, 30, UserHandle.USER_CURRENT);
+    }
 
     @Override
     public void onCreate(Bundle icicle) {
