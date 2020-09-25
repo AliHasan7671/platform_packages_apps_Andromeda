@@ -35,4 +35,10 @@
         android:summary="@string/fprint_sucess_vib_summary"
         android:persistent="false" />
 
+    <com.aosap.settings.preferences.SecureSettingSwitchPreference
+        android:key="lock_screen_transparent_notifications_enabled"
+        android:title="@string/transparent_lockscreen_notification_title"
+        android:summary="@string/transparent_lockscreen_notification_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
