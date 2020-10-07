@@ -47,8 +47,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_SHOW_DATA_DISABLED = "data_disabled_icon";
+    private static final String KEY_SHOW_ROAMING = "roaming_indicator_icon";
 
     private SwitchPreference mDataDisabled;
+    private SwitchPreference mShowRoaming;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -59,7 +61,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 
         mDataDisabled = (SwitchPreference) findPreference(KEY_SHOW_DATA_DISABLED);
-
+        mShowRoaming = (SwitchPreference) findPreference(KEY_SHOW_ROAMING);
     }
 
     public static void reset(Context mContext) {
@@ -67,6 +69,8 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         BatteryBar.reset(mContext);
         Settings.System.putIntForUser(resolver,
                 Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ROAMING_INDICATOR_ICON, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
