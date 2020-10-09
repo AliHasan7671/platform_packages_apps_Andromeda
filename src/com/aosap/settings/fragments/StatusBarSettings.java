@@ -40,6 +40,8 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+import com.aosap.settings.fragments.BatteryBar;
+
 @SearchIndexable
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener, Indexable {
@@ -52,6 +54,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 
+    }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        BatteryBar.reset(mContext);
     }
 
     @Override
