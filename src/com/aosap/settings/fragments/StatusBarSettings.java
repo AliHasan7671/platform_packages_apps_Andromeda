@@ -3,6 +3,7 @@ package com.aosap.settings.fragments;
 import com.android.internal.logging.nano.MetricsProto;
 
 import android.os.Bundle;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -17,6 +18,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import com.android.settings.R;
 
@@ -26,6 +28,10 @@ import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.Indexable;
+import com.android.settingslib.search.SearchIndexable;
+
 import android.util.Log;
 
 import java.util.List;
@@ -34,8 +40,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
 
+@SearchIndexable
 public class StatusBarSettings extends SettingsPreferenceFragment implements
-        OnPreferenceChangeListener {
+        OnPreferenceChangeListener, Indexable {
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -57,5 +64,25 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.AOSAP;
     }
+	
+	public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+		new BaseSearchIndexProvider() {
+			@Override
+			public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+					boolean enabled) {
+				ArrayList<SearchIndexableResource> result =
+						new ArrayList<SearchIndexableResource>();
 
+				SearchIndexableResource sir = new SearchIndexableResource(context);
+				sir.xmlResId = R.xml.aosap_settings_statusbar;
+				result.add(sir);
+				return result;
+			}
+
+			@Override
+			public List<String> getNonIndexableKeys(Context context) {
+				List<String> keys = super.getNonIndexableKeys(context);
+				return keys;
+			}
+    };
 }

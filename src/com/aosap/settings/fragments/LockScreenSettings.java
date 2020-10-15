@@ -34,12 +34,20 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 
+import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.Indexable;
+import com.android.settingslib.search.SearchIndexable;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@SearchIndexable
 public class LockScreenSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String FINGERPRINT_VIB = "fingerprint_success_vib";
 
@@ -82,4 +90,24 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         return MetricsProto.MetricsEvent.AOSAP;
     }
 
+	public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+		new BaseSearchIndexProvider() {
+			@Override
+			public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+					boolean enabled) {
+				ArrayList<SearchIndexableResource> result =
+						new ArrayList<SearchIndexableResource>();
+
+				SearchIndexableResource sir = new SearchIndexableResource(context);
+				sir.xmlResId = R.xml.aosap_settings_lockscreen;
+				result.add(sir);
+				return result;
+			}
+
+			@Override
+			public List<String> getNonIndexableKeys(Context context) {
+				List<String> keys = super.getNonIndexableKeys(context);
+				return keys;
+			}
+    };
 }
