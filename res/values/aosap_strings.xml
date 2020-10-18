@@ -54,7 +54,7 @@
     <string name="lockscreen_battery_info_summary">Show charging current, voltage, wattage and battery temperature on lockscreen while charging</string>
 
     <!-- Statusbar Tuner -->
-    <string name="statusbar_items_title">Statusbar items</string>
+    <string name="statusbar_items_title">Statusbar icons</string>
 
     <!-- Battery light -->
     <string name="battery_light_settings">Battery charging light</string>
@@ -188,7 +188,7 @@
     <string name="power_button_category_title">Power Button</string>
 
     <!-- Global Actions -->
-    <string name="global_actions_title">Power menu</string>
+    <string name="global_actions_title">Power menu items</string>
     <string name="global_actions_summary">Select what to show when you press the power button</string>
     <string name="global_actions_power">Power</string>
     <string name="global_actions_restart">Restart</string>
@@ -241,7 +241,7 @@
     <string name="vowifi_icon_simple3">Simple3 Icon</string>
 
     <!-- Battery mode -->
-    <string name="battery_percentage_title">Battery percentage</string>
+    <string name="qs_battery_percentage_title">Battery percentage in QS</string>
     <string name="battery_percentage_off">Disabled</string>
     <string name="battery_percentage_next">Enabled</string>
     <string name="battery_percentage_inside">Enabled (inside icon)</string>
