@@ -92,6 +92,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
                 Settings.System.LOCKSCREEN_POWERMENU_SECURE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_LOCK_ICON, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_ENABLE_POWER_MENU, 1, UserHandle.USER_CURRENT);
     }
 
 
