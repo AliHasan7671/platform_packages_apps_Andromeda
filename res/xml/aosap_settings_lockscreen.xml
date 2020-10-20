@@ -92,6 +92,14 @@
             android:title="@string/lockscreen_visualizer_enable"
             android:summary="@string/lockscreen_visualizer_enable_summary"
             android:defaultValue="false" />
-
     </PreferenceCategory>
+
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+               android:key="lockscreen_powermenu_secure"
+               android:icon="@drawable/ic_lock_outline"
+               android:title="@string/lockscreen_secure_power_menu_title"
+               android:summary="@string/lockscreen_secure_power_menu_summary"
+               android:dependency="lockscreen_enable_power_menu"
+               android:defaultValue="false" />
+
 </PreferenceScreen>

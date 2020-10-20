@@ -33,6 +33,7 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
+import android.os.UserHandle;
 
 import android.provider.SearchIndexableResource;
 import android.provider.Settings;
@@ -84,6 +85,13 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         }
         return false;
     }
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_POWERMENU_SECURE, 0, UserHandle.USER_CURRENT);
+    }
+
 
     @Override
     public int getMetricsCategory() {
