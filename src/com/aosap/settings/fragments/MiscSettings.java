@@ -27,7 +27,6 @@ import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
 
 import com.aosap.settings.preferences.CustomSeekBarPreference;
-import com.aosap.settings.preferences.SystemSettingMasterSwitchPreference;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -44,10 +43,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
     private static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
     private CustomSeekBarPreference mFlashOnCallWaitingDelay;
     private ListPreference mHeadsetRingtoneFocus;
-
-    private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
-
-    private SystemSettingMasterSwitchPreference mGamingMode;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -67,11 +62,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mHeadsetRingtoneFocus.setSummary(mHeadsetRingtoneFocus.getEntry());
         mHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);
 
-        mGamingMode = (SystemSettingMasterSwitchPreference) findPreference(GAMING_MODE_ENABLED);
-        mGamingMode.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.GAMING_MODE_ENABLED, 0) == 1));
-        mGamingMode.setOnPreferenceChangeListener(this);
-
     }
 
     @Override
@@ -87,12 +77,6 @@ public class MiscSettings extends SettingsPreferenceFragment implements
                     mHeadsetRingtoneFocus.getEntries()[index]);
             Settings.Global.putInt(getContentResolver(), Settings.Global.RINGTONE_FOCUS_MODE,
                     mHeadsetRingtoneFocusValue);
-            return true;
-        }
-        else if (preference == mGamingMode) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.GAMING_MODE_ENABLED, value ? 1 : 0);
             return true;
         }
     return false;
