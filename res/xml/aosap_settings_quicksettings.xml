@@ -100,4 +100,10 @@
         android:entryValues="@array/smart_pulldown_values"
         android:persistent="false" />
 
+    <com.aosap.settings.preferences.SystemSettingSwitchPreference 
+        android:key="qs_datausage" 
+        android:title="@string/qs_datausage_title" 
+        android:summary="@string/qs_datausage_subtitle"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
