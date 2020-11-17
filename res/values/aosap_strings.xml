@@ -708,4 +708,8 @@
     <string name="clock_date_left">Left of time</string>
     <string name="clock_date_position">Date position</string>
 
+    <!-- Supress notifications if screen is on -->
+    <string name="notification_sound_vib_screen_on_title">Notification sound if active</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
+
 </resources>
