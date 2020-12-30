@@ -30,26 +30,6 @@
             android:entries="@array/ringtone_focus_mode_entries"
             android:entryValues="@array/ringtone_focus_mode_values" />
 
-<PreferenceCategory
-        android:key="flash_on_call_options"
-        android:title="@string/flash_on_call_category" >
-
-         <com.aosap.settings.preferences.SystemSettingSwitchPreference
-            android:key="flash_on_call_waiting"
-            android:title="@string/flash_on_call_title"
-            android:defaultValue="false" />
-
-         <com.aosap.settings.preferences.CustomSeekBarPreference
-            android:key="flash_on_call_waiting_delay"
-            android:max="1000"
-            android:persistent="false"
-            android:title="@string/flash_on_call_delay_title"
-            settings:min="50"
-            settings:units="ms"
-            settings:interval="50"
-            android:dependency="flash_on_call_waiting"/>
-         </PreferenceCategory>
-
     <Preference
         android:key="gaming_mode"
         android:icon="@drawable/ic_gaming"
@@ -62,14 +42,8 @@
         android:fragment="com.aosap.settings.fragments.Animations"
         android:icon="@drawable/ic_animations"
         android:key="animations"
-	android:summary="@string/animations_summary"
+    	android:summary="@string/animations_summary"
         android:title="@string/animations_title" />
-
-    <com.aosap.settings.preferences.SystemSettingSwitchPreference
-        android:key="charging_animation"
-        android:title="@string/charging_animation_title"
-        android:summary="@string/charging_animation_summary"
-        android:defaultValue="true" />
 
     <!-- Smart Charging -->
     <Preference
@@ -78,5 +52,44 @@
         android:title="@string/smart_charging_title"
         android:summary="@string/smart_charging_summary"
         android:fragment="com.aosap.settings.fragments.SmartCharging"/>
+
+    <!-- Adaptive Playback -->
+    <com.aosap.settings.preferences.SystemSettingSwitchPreference
+        android:key="adaptive_playback_enabled"
+        android:icon="@drawable/ic_settings_sound"
+        android:title="@string/adaptive_playback_title"
+        android:summary="@string/adaptive_playback_summary"
+        android:defaultValue="false" />
+
+    <com.aosap.settings.preferences.SystemSettingSeekBarPreference
+        android:key="adaptive_playback_timeout"
+        android:icon="@drawable/ic_settings_sound"
+        android:title="@string/adaptive_playback_timeout_title"
+        android:defaultValue="30"
+        android:max="600"
+        settings:min="10"
+        settings:interval="10"
+        settings:units="@string/unit_seconds"
+        android:dependency="adaptive_playback_enabled" />
+
+    <PreferenceCategory
+        android:key="incall_vib_options"
+        android:title="@string/incall_vibration_category" >
+
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_connect"
+            android:title="@string/incall_vibrate_connect_title"
+            android:defaultValue="false" />
+
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_callwaiting"
+            android:title="@string/incall_vibrate_call_wait_title"
+            android:defaultValue="false" />
+
+        <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_disconnect"
+            android:title="@string/incall_vibrate_disconnect_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

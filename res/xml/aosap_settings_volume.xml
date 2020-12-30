@@ -42,50 +42,6 @@
         android:summary="@string/volume_steps_summary"
         android:fragment="com.aosap.settings.fragments.VolumeStepsFragment" />
 
-    <PreferenceCategory
-        android:key="vibration_patterns"
-        android:title="@string/ringtone_vibration_pattern" >
-
-        <com.android.settingslib.widget.RadioButtonPreference
-            android:key="pattern_dzzz_dzzz"
-            android:title="@string/pattern_dzzz_dzzz" />
-
-        <com.android.settingslib.widget.RadioButtonPreference
-            android:key="pattern_dzzz_da"
-            android:title="@string/pattern_dzzz_da" />
-
-        <com.android.settingslib.widget.RadioButtonPreference
-            android:key="pattern_mm_mm_mm"
-            android:title="@string/pattern_mm_mm_mm" />
-
-        <com.android.settingslib.widget.RadioButtonPreference
-            android:key="pattern_da_da_dzzz"
-            android:title="@string/pattern_da_da_dzzz" />
-
-        <com.android.settingslib.widget.RadioButtonPreference
-            android:key="pattern_da_dzzz_da"
-            android:title="@string/pattern_da_dzzz_da" />
-    </PreferenceCategory>
-
-    <!-- Adaptive Playback -->
-    <com.aosap.settings.preferences.SystemSettingSwitchPreference
-        android:key="adaptive_playback_enabled"
-        android:icon="@drawable/ic_settings_sound"
-        android:title="@string/adaptive_playback_title"
-        android:summary="@string/adaptive_playback_summary"
-        android:defaultValue="false" />
-
-    <com.aosap.settings.preferences.SystemSettingSeekBarPreference
-        android:key="adaptive_playback_timeout"
-        android:icon="@drawable/ic_settings_sound"
-        android:title="@string/adaptive_playback_timeout_title"
-        android:defaultValue="30"
-        android:max="600"
-        settings:min="10"
-        settings:interval="10"
-        settings:units="@string/unit_seconds"
-        android:dependency="adaptive_playback_enabled" />
-
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
             android:key="swap_volume_buttons"
             android:title="@string/swap_volume_buttons_title"
