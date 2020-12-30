@@ -37,47 +37,57 @@
         android:key="heads_up_notifications"
         android:title="@string/heads_up_notifications"
         android:fragment="com.aosap.settings.fragments.HeadsUpSettings" />
-
+    
     <PreferenceCategory
-        android:key="incall_vib_options"
-        android:title="@string/incall_vibration_category" >
+        android:key="flash_on_call_options"
+        android:title="@string/flash_on_call_category" >
 
-        <com.aosap.settings.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_connect"
-            android:title="@string/incall_vibrate_connect_title"
+         <com.aosap.settings.preferences.SystemSettingSwitchPreference
+            android:key="flash_on_call_waiting"
+            android:title="@string/flash_on_call_title"
             android:defaultValue="false" />
 
-        <com.aosap.settings.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_callwaiting"
-            android:title="@string/incall_vibrate_call_wait_title"
-            android:defaultValue="false" />
-
-        <com.aosap.settings.preferences.SystemSettingSwitchPreference
-            android:key="vibrate_on_disconnect"
-            android:title="@string/incall_vibrate_disconnect_title"
-            android:defaultValue="false" />
-    </PreferenceCategory>
-
-    <com.aosap.settings.preferences.SecureSettingListPreference
-        android:key="qs_show_brightness_slider"
-        android:title="@string/qs_show_brightness_slider_title"
-        android:summary="%s"
-        android:dialogTitle="@string/qs_show_brightness_slider_title"
-        android:entries="@array/qs_show_brightness_slider_entries"
-        android:entryValues="@array/qs_show_brightness_slider_values"
-        android:defaultValue="1" />
-
-    <com.aosap.settings.preferences.SecureSettingSwitchPreference
-        android:key="qs_show_auto_brightness"
-        android:title="@string/qs_show_auto_brightness_title"
-        android:summary="@string/qs_show_auto_brightness_summary"
-        android:defaultValue="true" />
+         <com.aosap.settings.preferences.CustomSeekBarPreference
+            android:key="flash_on_call_waiting_delay"
+            android:max="1000"
+            android:persistent="false"
+            android:title="@string/flash_on_call_delay_title"
+            settings:min="50"
+            settings:units="ms"
+            settings:interval="50"
+            android:dependency="flash_on_call_waiting"/>
+         </PreferenceCategory>
 
     <Preference
          android:key="ambient_decor"
          android:title="@string/ambient_decor_title"
          android:summary="@string/ambient_decor_summary"
          android:fragment="com.aosap.settings.fragments.AmbientDecorSettings" />
+
+    <PreferenceCategory
+        android:key="vibration_patterns"
+        android:title="@string/ringtone_vibration_pattern" >
+
+        <com.android.settingslib.widget.RadioButtonPreference
+            android:key="pattern_dzzz_dzzz"
+            android:title="@string/pattern_dzzz_dzzz" />
+
+        <com.android.settingslib.widget.RadioButtonPreference
+            android:key="pattern_dzzz_da"
+            android:title="@string/pattern_dzzz_da" />
+
+        <com.android.settingslib.widget.RadioButtonPreference
+            android:key="pattern_mm_mm_mm"
+            android:title="@string/pattern_mm_mm_mm" />
+
+        <com.android.settingslib.widget.RadioButtonPreference
+            android:key="pattern_da_da_dzzz"
+            android:title="@string/pattern_da_da_dzzz" />
+
+        <com.android.settingslib.widget.RadioButtonPreference
+            android:key="pattern_da_dzzz_da"
+            android:title="@string/pattern_da_dzzz_da" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="notification_misc"
