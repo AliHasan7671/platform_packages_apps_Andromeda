@@ -103,7 +103,6 @@
 
     <com.aosap.settings.preferences.SystemSettingListPreference
             android:key="lockscreen_charging_animation_style"
-            android:icon="@drawable/ic_flash_outline"
             android:title="@string/lockscreen_charging_animation_title"
             android:entries="@array/lockscreen_charging_animation_entries"
             android:entryValues="@array/lockscreen_charging_animation_values"
@@ -162,9 +161,12 @@
             android:defaultValue="false" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="lockscreen_misc"
+        android:title="@string/misc_title">
+
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
                android:key="lockscreen_powermenu_secure"
-               android:icon="@drawable/ic_lock_outline"
                android:title="@string/lockscreen_secure_power_menu_title"
                android:summary="@string/lockscreen_secure_power_menu_summary"
                android:dependency="lockscreen_enable_power_menu"
@@ -172,14 +174,12 @@
 
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_lock_icon"
-            android:icon="@drawable/ic_lock_outline"
             android:title="@string/lockscreen_lock_icon_title"
             android:summary="@string/lockscreen_lock_icon_summary"
             android:defaultValue="true" />
 
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
                android:key="lockscreen_enable_power_menu"
-               android:icon="@drawable/ic_power"
                android:title="@string/lockscreen_enable_power_menu_title"
                android:summary="@string/lockscreen_enable_power_menu_summary"
                android:defaultValue="true" />
@@ -191,5 +191,7 @@
         android:entryValues="@array/screen_off_animation_values"
         android:summary="%s"
         android:defaultValue="0" />
+ 
+   </PreferenceCategory>
 
 </PreferenceScreen>

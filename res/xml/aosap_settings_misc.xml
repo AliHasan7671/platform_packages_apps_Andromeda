@@ -32,7 +32,6 @@
 
     <Preference
         android:key="gaming_mode"
-        android:icon="@drawable/ic_gaming"
         android:fragment="com.aosap.settings.fragments.GamingMode"
         android:title="@string/gaming_mode_title"
         android:summary="@string/gaming_mode_summary"
@@ -40,7 +39,6 @@
 
     <Preference
         android:fragment="com.aosap.settings.fragments.Animations"
-        android:icon="@drawable/ic_animations"
         android:key="animations"
     	android:summary="@string/animations_summary"
         android:title="@string/animations_title" />
@@ -48,7 +46,6 @@
     <!-- Smart Charging -->
     <Preference
         android:key="smart_charging"
-        android:icon="@drawable/ic_battery_charging_80"
         android:title="@string/smart_charging_title"
         android:summary="@string/smart_charging_summary"
         android:fragment="com.aosap.settings.fragments.SmartCharging"/>
@@ -56,14 +53,12 @@
     <!-- Adaptive Playback -->
     <com.aosap.settings.preferences.SystemSettingSwitchPreference
         android:key="adaptive_playback_enabled"
-        android:icon="@drawable/ic_settings_sound"
         android:title="@string/adaptive_playback_title"
         android:summary="@string/adaptive_playback_summary"
         android:defaultValue="false" />
 
     <com.aosap.settings.preferences.SystemSettingSeekBarPreference
         android:key="adaptive_playback_timeout"
-        android:icon="@drawable/ic_settings_sound"
         android:title="@string/adaptive_playback_timeout_title"
         android:defaultValue="30"
         android:max="600"

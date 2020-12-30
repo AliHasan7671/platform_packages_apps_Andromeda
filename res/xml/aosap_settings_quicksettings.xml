@@ -20,21 +20,18 @@
 
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
             android:key="qs_tile_title_visibility"
-            android:icon="@drawable/ic_text"
             android:title="@string/qs_tile_title_visibility_title"
             android:summary="@string/qs_tile_title_visibility_summary"
             android:defaultValue="true" />
 
         <com.aosap.settings.preferences.SecureSettingSwitchPreference
             android:key="quick_settings_vibrate"
-            android:icon="@drawable/ic_vibrate"
             android:title="@string/quick_settings_vibrate_title"
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false"/>
 
         <Preference
             android:key="custom_header"
-            android:icon="@drawable/ic_header"
             android:fragment="com.aosap.settings.fragments.CustomHeader"
             android:title="@string/custom_header_title"
             android:summary="@string/custom_header_summary" />
@@ -43,7 +40,6 @@
         <com.aosap.settings.preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_bg_alpha"
             android:title="@string/qs_panel_alpha_title"
-            android:icon="@drawable/ic_invert_colors"
             android:defaultValue="255"
             android:max="255"
             settings:min="0"

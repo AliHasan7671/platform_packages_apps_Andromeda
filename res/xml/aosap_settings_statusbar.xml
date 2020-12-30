@@ -106,21 +106,18 @@
         <!-- Battery bar -->
         <PreferenceScreen
             android:key="batterybar"
-            android:icon="@drawable/ic_car_battery"
             android:title="@string/battery_bar_title"
             android:summary="@string/battery_bar_summary"
             android:fragment="com.aosap.settings.fragments.BatteryBar" />
 
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
             android:key="data_disabled_icon"
-            android:icon="@drawable/ic_close"
             android:title="@string/data_disabled_icon_title"
             android:summary="@string/data_disabled_icon_summary"
             android:defaultValue="true"/>
 
         <com.aosap.settings.preferences.SystemSettingSwitchPreference
             android:key="roaming_indicator_icon"
-            android:icon="@drawable/ic_roaming_indicator"
             android:title="@string/roaming_indicator_icon_title"
             android:summary="@string/roaming_indicator_icon_summary"
             android:defaultValue="true"/>
